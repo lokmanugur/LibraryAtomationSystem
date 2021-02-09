@@ -28,7 +28,7 @@ public class StudentDaoImpl extends DaoAbstract implements StudentDao{
     private static final String PERSON_INSERT_QUERY="INSERT INTO person(firstname,lastname,birthdate,phone,address,createddate) VALUES(?,?,?,?,?,?)";
     private static final String STUDENT_INSERT_QUERY="INSERT INTO student(personid,schoolid,studentclass,studentnumber) VALUES(?,?,?,?)";
     private static final String SCHOOL_SEARCH_QUERY="SELECT * FROM school";
-    private static final String STUDENT_DELETE_QUERY="UPDATE person SET deleted=?,lastupdate=? WHERE personid=(SELECT personid FROM student WHERE studentid =?);";
+    private static final String STUDENT_DELETE_QUERY="UPDATE person SET deleted=?,lastupdate=? WHERE personid=(SELECT personid FROM student WHERE studentnumber =?);";
     private static final String STUDENT_SEARCH_QUERY="SELECT s.studentnumber as Öğrenci_No,"
             + "p.firstname as Adı,p.lastname as Soyadı,"
             + "s.studentclass as Sınıfı,sch.schoolname as Okul_Adı,p.phone as Telefon,p.address as Adres "
@@ -82,12 +82,12 @@ public class StudentDaoImpl extends DaoAbstract implements StudentDao{
     }
 
     @Override
-    public void deleteStudent(int studentId) {
+    public void deleteStudent(String studentId) {
         PreparedStatement preparedStatement = createPrepareStatement(STUDENT_DELETE_QUERY);
         try {
             preparedStatement.setBoolean(1, true);
             preparedStatement.setString(2, new Date().toString());
-            preparedStatement.setInt(3, studentId);
+            preparedStatement.setString(3, studentId);
            int effectedRow = preparedStatement.executeUpdate();
             UserInfoMessages.getInstance().deletedMessage(effectedRow);
         } catch (SQLException ex) {

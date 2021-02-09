@@ -48,7 +48,7 @@ public final class StudentSearchFormController {
         if (studentSearchForm.getStudentTable().getSelectedRow() == -1) {
             UserInfoMessages.getInstance().showInfoMessages("Lütfen silmek istediğiniz veriyi seçin");
         } else if (UserInfoMessages.getInstance().showApproveMessages("Seçilen satırı silmek istediğinize eminmisiniz?", "Silme İşlemi Onay Formu")) {
-            studentDao.deleteStudent((int) studentSearchForm.getStudentTable().getModel().getValueAt(studentSearchForm.getStudentTable().getSelectedRow(), 0));
+            studentDao.deleteStudent((String) studentSearchForm.getStudentTable().getModel().getValueAt(studentSearchForm.getStudentTable().getSelectedRow(), 0));
         }
         fillAllStudents();
     }

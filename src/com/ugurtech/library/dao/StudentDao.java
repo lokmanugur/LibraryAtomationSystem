@@ -19,7 +19,7 @@ public interface StudentDao {
     public StudentModel getStudent(int id);
     public void addStudent(StudentModel studentModel);
     public void updateStudent(StudentModel studentModel);
-    public void deleteStudent(int studentId);
+    public void deleteStudent(String studentId);
     public List<SchoolModel> getAllSchool();
     public ResultSet fillAllStudent(Map<String, String> filters);
     
