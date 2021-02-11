@@ -47,6 +47,8 @@ public class BorrowedBookDaoImpl extends DaoAbstract implements BorrowedBookDao{
                     break;
                   case "İade Zamanı Aşan Kitaplar":
                       query.append("AND ");
+                      query.append("pb.bringbackdate IS NULL ");
+                      query.append("AND ");
                       query.append("date()>pb.finishdate ");
                     break;
                   default:
