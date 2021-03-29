@@ -14,8 +14,6 @@ public class LoginForm extends JFrame {
     private LoginForm() {
         initComponents();
         loginFormController = new LoginFormController(this);
-        userNameField.setText(" ");
-        userPaswordField.setText(" ");
     }
     
     public static LoginForm getInstance(){

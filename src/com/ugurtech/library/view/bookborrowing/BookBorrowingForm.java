@@ -9,6 +9,7 @@ import com.ugurtech.library.controller.BookBorrowingController;
 import com.ugurtech.library.view.MainFrame;
 import com.ugurtech.library.view.book.BooksSearch;
 import com.ugurtech.library.view.person.PersonForm;
+import com.ugurtech.library.view.student.StudentForm;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -469,7 +470,7 @@ public final class BookBorrowingForm extends JInternalFrame {
     }//GEN-LAST:event_removeBookButtonActionPerformed
 
     private void addPersonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPersonButtonActionPerformed
-       MainFrame.getInstance().addDesktopPane(PersonForm.getInstance());
+       MainFrame.getInstance().addDesktopPane(StudentForm.getInstance());
        clearBookFeatureField();
     }//GEN-LAST:event_addPersonButtonActionPerformed
 
